@@ -69,6 +69,29 @@ void list::printlist()
 	cout<<"NULL"<<endl;
 }
 
+int list::remove_front()
+{
+	if(!head)
+		return -1;
+	if(head == tail)
+	{
+		//single node case
+		
+		int retinfo = head->info;
+		delete head;
+		head = NULL;
+		tail = NULL;
+		return retinfo;
+	}
+
+	int retinfo = head->info;
+	node *tmp = head;
+	head = head->next;
+	delete tmp;
+	return retinfo;
+
+}
+
 int _tmain(int argc, _TCHAR* argv[])
 {
 	list l;
